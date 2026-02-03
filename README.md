@@ -1,2 +1,4 @@
 # Outils-d-optimisation-de-portefeuille
-Quant-Opti Pro est une plateforme interactive d'ingénierie financière conçue pour la construction, l'optimisation et le backtesting de portefeuilles d'actifs
+Quant-Opti Pro est une plateforme interactive conçue pour la construction, l'optimisation et le backtesting de portefeuilles d'actifs
+
+Dashboard d'Optimisation de Portefeuille, J'ai conçu cette plateforme  (Pandas, Scipy, Plotly, Streamlit) pour automatiser la construction et le backtesting de stratégies d'optimisation portefeuilles personnalisables. L'outil compare la robustesse de divers modèles (Equal weighted,Markowitz, Lasso L1, Ridge L2, GMVP, Inverse Volatility, ERC, ERC + μ) en utilisant une méthodologie rigoureuse d'entraînement sur données historiques (In-Sample) suivie d'une validation sur données réelles (Out-of-Sample). Cette approche permet d'analyser dynamiquement le ratio de Sharpe, le Max Drawdown et la contribution au risque pour garantir des allocations optimisées et résilientes.
