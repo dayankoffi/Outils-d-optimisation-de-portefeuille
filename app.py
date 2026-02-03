@@ -119,7 +119,7 @@ if not df_prices.empty and len(df_prices.columns) > 1:
     # 1. TABLEAU DES POIDS
     st.header("⚖️ 1. Allocations de Portefeuille (Calculées sur Train)")
     df_weights = pd.DataFrame(weights_map, index=tickers).T
-st.dataframe(df_weights.style.format("{:.2%}"), use_container_width=True)
+    st.dataframe(df_weights.style.format("{:.2%}"), use_container_width=True)
 
     # 2. ONGLETS DE PERFORMANCE
     st.header("📈 2. Analyse des Performances")
@@ -167,3 +167,4 @@ else:
 st.markdown("---")
 
 st.caption("Dashboard développé par Dayan KOFFI - 2024")
+
