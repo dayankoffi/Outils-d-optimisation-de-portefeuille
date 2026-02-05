@@ -13,15 +13,15 @@ st.set_page_config(page_title="Quant-Opti Pro - Dayan KOFFI", layout="wide")
 # --- STYLE ET SIGNATURE ---
 st.title(" Quant-Opti Pro : Dashboard d'Optimisation de portefeuille")
 st.markdown("### Auteur : **Dayan KOFFI**")
-st.info("Cette application compare vos stratégies d'allocation sur les périodes d'entraînement (**In-Sample**) et de test (**Out-of-Sample**).")
+st.info("Cette application compare différentes stratégies d'allocation sur les périodes d'entraînement (**In-Sample**) et de test (**Out-of-Sample**).")
 
 # --- SIDEBAR : CONFIGURATION DÉTAILLÉE ---
 st.sidebar.image("https://www.pngall.com/wp-content/uploads/10/Stock-Market-Analysis-PNG-Images.png", width=100)
-st.sidebar.header("👤 Informations")
+st.sidebar.header(" Informations")
 st.sidebar.write("**Auteur :** Dayan KOFFI")
 st.sidebar.markdown("---")
 
-st.sidebar.header("📅 Paramètres Temporels")
+st.sidebar.header(" Paramètres Temporels")
 tickers_input = st.sidebar.text_input("Actifs (Yahoo Finance)", "NVDA,SMCI,META,AVGO,AMD,MSFT,LRCX,AAPL,AMZN,NFLX")
 tickers = [t.strip().upper() for t in tickers_input.split(",")]
 
@@ -30,7 +30,7 @@ start_date = col_d1.date_input("Début Global", datetime(2021, 1, 1))
 end_date = col_d2.date_input("Fin Globale", datetime.now())
 split_date = st.sidebar.date_input("Date de Split (Train/Test)", value=datetime(2024, 1, 1))
 
-st.sidebar.header("🔬 Paramètres des Modèles")
+st.sidebar.header(" Paramètres des Modèles")
 lambda_lasso = st.sidebar.slider("Lambda (λ) Lasso (L1)", 0.0, 1.0, 0.1)
 lambda_ridge = st.sidebar.slider("Lambda (λ) Ridge (L2)", 0.0, 1.0, 0.1)
 alpha_mu = st.sidebar.slider("Alpha (Poids μ dans ERC+μ)", 0.0, 1.0, 0.3)
@@ -122,8 +122,8 @@ if not df_prices.empty and len(df_prices.columns) > 1:
     st.dataframe(df_weights.style.format("{:.2%}"), use_container_width=True)
 
     # 2. ONGLETS DE PERFORMANCE
-    st.header("📈 2. Analyse des Performances")
-    tab_train, tab_test, tab_risk = st.tabs(["📉 Période d'Entraînement (In-Sample)", "🚀 Période de Test (Out-of-Sample)", "🛡️ Analyse du Risque"])
+    st.header(" 2. Analyse des Performances")
+    tab_train, tab_test, tab_risk = st.tabs([" Période d'Entraînement (In-Sample)", " Période de Test (Out-of-Sample)", " Analyse du Risque"])
 
     with tab_train:
         st.subheader("Performance Cumulative : In-Sample")
@@ -167,4 +167,5 @@ else:
 st.markdown("---")
 
 st.caption("Dashboard développé par Dayan KOFFI - 2024")
+
 
