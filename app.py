@@ -22,7 +22,7 @@ st.sidebar.write("**Auteur :** Dayan KOFFI")
 st.sidebar.markdown("---")
  
 st.sidebar.header(" Paramètres Temporels")
-tickers_input = st.sidebar.text_input("Actifs (Yahoo Finance)", "NVDA,SMCI,META,AVGO,AMD,MSFT,LRCX,AAPL,AMZN,NFLX")
+tickers_input = st.sidebar.text_input("Actifs (Yahoo Finance)", "MC.PA,OR.PA,RMS.PA,TTE.PA,SAN.PA,AIR.PA")
 tickers = [t.strip().upper() for t in tickers_input.split(",")]
  
 col_d1, col_d2 = st.sidebar.columns(2)
