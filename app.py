@@ -117,7 +117,7 @@ if not df_prices.empty and len(df_prices.columns) > 1:
         }
 
     # 1. TABLEAU DES POIDS
-    st.header("⚖️ 1. Allocations de Portefeuille (Calculées sur Train)")
+    st.header(" 1. Allocations de Portefeuille (Calculées sur Train)")
     df_weights = pd.DataFrame(weights_map, index=tickers).T
     st.dataframe(df_weights.style.format("{:.2%}"), use_container_width=True)
 
@@ -132,7 +132,7 @@ if not df_prices.empty and len(df_prices.columns) > 1:
             cum, _, _, _, _ = compute_metrics(train_rets, w)
             fig_train.add_trace(go.Scatter(x=cum.index, y=cum, name=name))
         fig_train.update_layout(hovermode="x unified", template="plotly_white")
-        st.plotly_chart(fig_train, use_container_width=True)
+        st.plotly_chart(fig_train, use_container_width=True, key="chart_train")
         
         st.markdown("### Statistiques In-Sample")
         st.table(get_stat_table(train_rets, weights_map).style.format("{:.2f}"))
@@ -144,7 +144,7 @@ if not df_prices.empty and len(df_prices.columns) > 1:
             cum, _, _, _, _ = compute_metrics(test_rets, w)
             fig_test.add_trace(go.Scatter(x=cum.index, y=cum, name=name))
         fig_test.update_layout(hovermode="x unified", template="plotly_white")
-        st.plotly_chart(fig_test, use_container_width=True)
+        st.plotly_chart(fig_test, use_container_width=True, key="chart_test")
         
         st.markdown("### Statistiques Out-of-Sample")
         st.table(get_stat_table(test_rets, weights_map).style.format("{:.2f}"))
@@ -159,7 +159,7 @@ if not df_prices.empty and len(df_prices.columns) > 1:
                 rc_data.append({"Modèle": name, "Actif": t, "Contribution": rc[i]})
         
         fig_rc = px.bar(pd.DataFrame(rc_data), x='Actif', y='Contribution', color='Modèle', barmode='group')
-        st.plotly_chart(fig_rc, use_container_width=True)
+       st.plotly_chart(fig_rc, use_container_width=True, key="chart_risk")
 
 else:
     st.error("Données insuffisantes. Vérifiez les tickers ou la date de split.")
